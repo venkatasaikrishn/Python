@@ -1,0 +1,56 @@
+import random
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+
+choice = input("type 0 for rock,1 for paper and 2 for scissors\n")
+if choice=="0":
+    print(rock)
+elif choice=="1":
+    print(paper)
+elif choice=="2":
+    print(scissors)
+else:
+    print("wrong input. try again.")
+
+
+computer_choice= [rock, paper, scissors]
+random_computer_choice = random.randint(0,2)
+print(f"computer chose {computer_choice[random_computer_choice]}")
+
+if choice==random_computer_choice:
+    print("draw")
+elif choice=="1" and random_computer_choice==0:
+    print("You win")
+elif choice=="2" and random_computer_choice==1:
+    print("You win")
+elif choice=="0" and random_computer_choice==2:
+    print("You win")
+else:
+    print("computer wins!")
+

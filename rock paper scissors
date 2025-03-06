@@ -28,18 +28,17 @@ scissors = '''
 '''
 
 
-choice = input("type 0 for rock,1 for paper and 2 for scissors\n")
-if choice=="0":
+choice = int(input("type 0 for rock,1 for paper and 2 for scissors\n"))
+if choice==0:
     print(rock)
-elif choice=="1":
+elif choice==1:
     print(paper)
-elif choice=="2":
+elif choice==2:
     print(scissors)
 else:
     print("wrong input. try again.")
     exit()
 
-choice=int(choice)
 computer_choice= [rock, paper, scissors]
 random_computer_choice = random.randint(0,2)
 print(f"computer chose {computer_choice[random_computer_choice]}")
@@ -54,4 +53,6 @@ elif choice=="0" and random_computer_choice==2:
     print("You win")
 else:
     print("computer wins!")
+
+
 

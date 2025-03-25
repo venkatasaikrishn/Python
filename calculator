@@ -1,0 +1,37 @@
+def add(n1, n2):
+    return n1+n2
+
+def sub(n1,n2):
+    return n1-n2
+
+def mul(n1,n2):
+    return n1 * n2
+
+def div(n1,n2):
+    return n1 / n2
+
+def calculator():
+
+
+    should_continue = True
+    num1 = float(input("what is your first number: "))
+    while should_continue:
+        operations = {"+": add,
+                      "-": sub,
+                      "*":mul,
+                      "/":div,}
+        operator = input("What is your operation '+'\n '-'\n '*'\n '/' \n")
+        num2 = float(input("what is your second number: "))
+
+
+        result =(operations[operator](num1,num2))
+        print(f"{num1}{operator}{num2}= {result}")
+
+        choice = input(f"If you want to continue calculations with {result} press 'y' or to exit 'n'")
+        if choice =="y":
+            num1 =result
+        else:
+            should_continue=False
+            print("\n" * 20)
+            calculator()
+calculator()

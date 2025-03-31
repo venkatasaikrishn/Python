@@ -1,0 +1,44 @@
+import random
+
+EASY_GAME = 10
+HARD_GAME = 5
+
+
+def set_diff():
+    level=input("Choose a difficulty. Type 'easy' or 'hard': ")
+    if level == "easy":
+        return EASY_GAME
+    else:
+        return HARD_GAME
+
+def check_answer(user_guess, actual_answer, turns):
+    if user_guess > actual_answer:
+        print("Too high")
+        return turns - 1
+    elif user_guess < actual_answer:
+        print("Too low")
+        return turns - 1
+    else:
+        print(f"Congratulations. The number is  {actual_answer}. You guessed it right")
+
+def game():
+    print("Welcome to the Number Guessing Game ")
+    print("Im thinking of a number between 1 and 100. Can you guess it ?")
+    answer = random.randint(1,100)
+    print(f"pssst ! The correct number is {answer} ")
+
+
+    turns = set_diff()
+    guess=0
+    while guess != answer:
+        print(f"You have {turns} attempts remaining to guess the number")
+        guess= int(input("Make a guess: "))
+        turns = check_answer(guess, answer, turns)
+        if turns == 0:
+            print("You've run out of guesses. You lose")
+            return
+        elif guess != answer:
+            print("Guess again")
+
+
+game()

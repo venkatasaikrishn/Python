@@ -1,0 +1,38 @@
+from art import logo
+from game_data import data
+import random
+
+def start_game():
+    print("Welcome to Lower Higher game.")
+    score= 0
+    should_continue = True
+
+
+    first_pop = random.choice(data)
+    print(f"Compare A : {first_pop['name']}, {first_pop['description']}, {first_pop['country']}")
+
+    while should_continue :
+
+
+
+        second_pop = random.choice(data)
+        print(f"Against B : {second_pop['name']}, {second_pop['description']}, {second_pop['country']}")
+
+
+        guess = input("Who has more followers. 'A' or 'B' ")
+        if first_pop['follower_count'] > second_pop['follower_count'] and guess == "A":
+            score +=1
+            print(f"Correct your score is {score}.")
+        first_pop = first_pop
+
+
+        if first_pop['follower_count'] < second_pop['follower_count'] and guess == "B":
+            score +=1
+            print(f"Correct your score is {score}.")
+        second_pop = first_pop
+        second_pop = random.choice(data)
+
+    else:
+        print(f"Your score is {score}.. You lost")
+
+start_game()
